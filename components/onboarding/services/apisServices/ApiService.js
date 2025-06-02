@@ -1,4 +1,4 @@
-import Apis from "@/component/apis/Apis";
+import Apis from "@/components/apis/Apis";
 import axios from "axios";
 
 //api call to assign lead to teamm members

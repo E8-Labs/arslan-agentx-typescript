@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Suspense } from "react";
-import LoginComponent from "@/component/auth/LoginComponent";
+import LoginComponent from "@/components/auth/LoginComponent";
 
 interface PageProps {
   length?: number;

@@ -1,7 +1,6 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -86,16 +85,13 @@ const config: Config = {
     },
   },
   plugins: [
-    require("tailwind-scrollbar")({ nocompatible: true }),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
-    require("tailwind-scrollbar"),
     require("tailwindcss-animate"),
+    // if tailwind-scrollbar works with v4:
+    require("tailwind-scrollbar"),
   ],
-  variants: {
-    scrollbar: ["rounded"],
-  },
 };
 
 export default config;
