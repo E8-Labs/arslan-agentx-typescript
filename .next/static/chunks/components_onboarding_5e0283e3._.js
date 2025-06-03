@@ -1361,11 +1361,7 @@ var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_
 __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
-(()=>{
-    const e = new Error("Cannot find module '@/component/apis/Apis'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$apis$2f$Apis$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/apis/Apis.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 ;
 ;
@@ -1375,7 +1371,7 @@ const SendVerificationCode = async (phone, login = true, verifyApiResponse)=>{
             login,
             phone
         };
-        const ApiPath = Apis.sendVerificationCode;
+        const ApiPath = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$apis$2f$Apis$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].sendVerificationCode;
         const result = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post(ApiPath, ApiData, {
             headers: {
                 "Content-Type": "application/json"
@@ -1413,11 +1409,7 @@ __turbopack_context__.s({
     "getLocation": (()=>getLocation),
     "getTeamsList": (()=>getTeamsList)
 });
-(()=>{
-    const e = new Error("Cannot find module '@/component/apis/Apis'");
-    e.code = 'MODULE_NOT_FOUND';
-    throw e;
-})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$apis$2f$Apis$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/apis/Apis.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-client] (ecmascript)");
 ;
 ;
@@ -1441,7 +1433,7 @@ const AssignTeamMember = async (leadId, teamMemberUserId)=>{
             teamMemberUserId: teamMemberUserId
         };
         // //console.log;
-        const ApiPath = Apis.AssignLeadToTeam;
+        const ApiPath = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$apis$2f$Apis$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].AssignLeadToTeam;
         // //console.log
         // return
         const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].post(ApiPath, ApiData, {
@@ -1462,7 +1454,7 @@ const AssignTeamMember = async (leadId, teamMemberUserId)=>{
 _c = AssignTeamMember;
 const checkPhoneNumber = async (value)=>{
     try {
-        const ApiPath = Apis.CheckPhone;
+        const ApiPath = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$apis$2f$Apis$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].CheckPhone;
         const ApiData = {
             phone: value
         };
@@ -1535,7 +1527,7 @@ const getTeamsList = async ()=>{
         const data = localStorage.getItem("User");
         if (data) {
             let u = JSON.parse(data);
-            let path = Apis.getTeam;
+            let path = __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$apis$2f$Apis$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].getTeam;
             const response = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].get(path, {
                 headers: {
                     Authorization: "Bearer " + u.token

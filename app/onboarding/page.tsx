@@ -19,10 +19,6 @@ import LawAgentSignUp from "@/components/onboarding/otherAgentsSignUp/LawAgentSi
 import LoanOfficerSignUp from "@/components/onboarding/otherAgentsSignUp/LoanOfficerSignUp";
 import OtherDetails from "@/components/onboarding/mobileUI/OtherDetails";
 import BasicDetails from "@/components/onboarding/mobileUI/BasicDetails";
-import MedSpaAgentSignUpMobile from "@/components/onboarding/mobileUI/MedSpaAgentSignUpMobile";
-import LoanOfficerSignUpMobile from "@/components/onboarding/mobileUI/LoanOfficerSignUpMobile";
-import LawAgentSignUpMobile from "@/components/onboarding/mobileUI/LawAgentSignUpMobile";
-import TexAgentSignUpMoble from "@/components/onboarding/mobileUI/TexAgentSignUpMoble";
 import BackgroundVideo from "../../components/general/BackgroundVideo";
 import { Modal } from "@mui/material";
 import { UserTypes } from "@/constants/UserTypes";
@@ -123,9 +119,6 @@ const Page: React.FC = () => {
       [UserTypes.RecruiterAgent]: BasicDetails,
       [UserTypes.TaxAgent]: BasicDetails,
       [UserTypes.DebtCollectorAgent]: BasicDetails,
-      [UserTypes.MedSpaAgent]: MedSpaAgentSignUpMobile,
-      [UserTypes.LawAgent]: LawAgentSignUpMobile,
-      [UserTypes.LoanOfficerAgent]: LoanOfficerSignUpMobile,
     };
 
     return [
