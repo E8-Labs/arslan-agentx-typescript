@@ -3,11 +3,10 @@ import Image from "next/image";
 import { Box, Modal, CircularProgress } from "@mui/material";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import SnackMessages from "@/components/onboarding/SnackMessages";
+import SnackMessages from "./services/AuthVerification/SnackMessages";
 import ProgressBar from "@/components/onboarding/ProgressBar";
 import Footer from "@/components/onboarding/Footer";
 import { PersistanceKeys } from "@/constants/Constants";
-import { validateEmail } from "@/utilities/validateEmail";
 import Apis from "@/components/apis/Apis";
 import axios from "axios";
 

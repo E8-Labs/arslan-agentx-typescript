@@ -8,7 +8,6 @@ import SnackMessages from "../services/AuthVerification/SnackMessages";
 import ProgressBar from "@/components/onboarding/ProgressBar";
 import Footer from "@/components/onboarding/Footer";
 import { PersistanceKeys } from "@/constants/Constants";
-import { validateEmail } from "@/utilities/validateEmail";
 import Apis from "@/components/apis/Apis";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -96,7 +95,7 @@ const SolarRepAgentSignUp: React.FC<SolarRepAgentSignUpProps> = ({
   const checkEmail = async (email: string) => {
     setEmailLoader(true);
     try {
-      const response = await axios.post(Apis.CheckEmail, { email });
+      const response :any= await axios.post(Apis.CheckEmail, { email });
       if (response?.data) {
         setEmailCheckResponse({
           status: response.data.status,
@@ -109,6 +108,18 @@ const SolarRepAgentSignUp: React.FC<SolarRepAgentSignUpProps> = ({
       setEmailLoader(false);
     }
   };
+
+  const validateEmail = (email: string): boolean => {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Check if email contains consecutive dots, which are invalid
+  if (/\.\./.test(email)) {
+    return false;
+  }
+
+  // Check the general pattern for a valid email
+  return emailPattern.test(email);
+};
 
   const handlePhoneNumberChange = (value: string) => {
     setUserPhoneNumber(value);
@@ -268,7 +279,6 @@ const SolarRepAgentSignUp: React.FC<SolarRepAgentSignUpProps> = ({
 
           <div style={{ marginTop: "8px" }}>
             <PhoneInput
-              className="border outline-none bg-white"
               country={"us"}
               onlyCountries={["us"]}
               disableDropdown={true}
@@ -398,12 +408,12 @@ const SolarRepAgentSignUp: React.FC<SolarRepAgentSignUpProps> = ({
                     {Array.from({ length }).map((_, index) => (
                       <input
                         key={index}
-                        ref={(el) => (verifyInputRef.current[index] = el!)}
+                        ref={(el) => {verifyInputRef.current[index] = el!}}
                         type="tel"
                         inputMode="numeric"
                         maxLength={1}
                         value={VerifyCode[index]}
-                        onChange={(e) => {
+                        onChange={(e) =>{
                           const value = e.target.value;
                           if (!/[0-9]/.test(value) && value !== "") return;
                           const newValues = [...VerifyCode];

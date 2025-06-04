@@ -7,7 +7,6 @@ import SnackMessages from "@/components/onboarding/services/AuthVerification/Sna
 import ProgressBar from "@/components/onboarding/ProgressBar";
 import Footer from "@/components/onboarding/Footer";
 import { PersistanceKeys } from "@/constants/Constants";
-import { validateEmail } from "@/utilities/validateEmail";
 import Apis from "@/components/apis/Apis";
 import axios from "axios";
 
@@ -102,6 +101,17 @@ const TaxAgentSignUp: React.FC<TaxAgentSignUpProps> = ({ handleTaxAgentBack }) =
       setEmailLoader(false);
     }
   };
+  const validateEmail = (email: string): boolean => {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Check if email contains consecutive dots, which are invalid
+  if (/\.\./.test(email)) {
+    return false;
+  }
+
+  // Check the general pattern for a valid email
+  return emailPattern.test(email);
+};
 
   const handlePhoneNumberChange = (value: string) => {
     setUserPhoneNumber(value);
@@ -257,7 +267,6 @@ const TaxAgentSignUp: React.FC<TaxAgentSignUpProps> = ({ handleTaxAgentBack }) =
 
           <div style={{ marginTop: "8px" }}>
             <PhoneInput
-              className="border outline-none bg-white"
               country={"us"}
               onlyCountries={["us"]}
               disableDropdown={true}

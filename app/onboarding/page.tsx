@@ -171,6 +171,7 @@ const Page: React.FC = () => {
             <BackgroundVideo />
           </div>
         )}
+        
         <CurrentComp
           handleContinue={handleContinue}
           handleBack={handleBack}

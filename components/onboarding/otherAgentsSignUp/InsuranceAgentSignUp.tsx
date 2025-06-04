@@ -5,8 +5,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Footer from "@/components/onboarding/Footer";
 import { PersistanceKeys } from "@/constants/Constants";
-import { validateEmail } from "@/utilities/validateEmail";
-import Apis from "../apis/Apis";
+import Apis from "@/components/apis/Apis";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import SnackMessages from "../services/AuthVerification/SnackMessages";
@@ -85,7 +84,7 @@ const InsuranceAgentSignUp: React.FC<InsuranceAgentSignUpProps> = ({
   const checkEmail = async (email: string) => {
     setEmailLoader(true);
     try {
-      const response = await axios.post(Apis.CheckEmail, { email });
+      const response:any = await axios.post(Apis.CheckEmail, { email });
       if (response?.data) {
         setEmailCheckResponse({
           status: response.data.status,
@@ -118,6 +117,20 @@ const InsuranceAgentSignUp: React.FC<InsuranceAgentSignUpProps> = ({
       setShouldContinue(true);
     }
   }, [userFarm, userBrokage]);
+
+    //email validation function
+  const validateEmail = (email: string): boolean => {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  // Check if email contains consecutive dots, which are invalid
+  if (/\.\./.test(email)) {
+    return false;
+  }
+
+  // Check the general pattern for a valid email
+  return emailPattern.test(email);
+};
+
   return (
     <div className="flex flex-row w-full justify-center h-[100svh]">
       <div className="w-full flex flex-col items-center px-4 h-[90%]">
@@ -244,7 +257,6 @@ const InsuranceAgentSignUp: React.FC<InsuranceAgentSignUpProps> = ({
 
           <div style={{ marginTop: "8px" }}>
             <PhoneInput
-              className="border outline-none bg-white"
               country={"us"}
               onlyCountries={["us"]}
               disableDropdown={true}
